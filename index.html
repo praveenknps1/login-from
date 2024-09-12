@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+<label for="">user name</label>
+<input type="text" placeholder="username" id="user">
+<label for="">password</label>
+<input type="password" placeholder="password" id="pass">
+<label for="">confirm password</label>
+<input type="password" placeholder="confirm" id="cn_ps" >
+<label for="">email</label>
+<input type="text" placeholder="email" id="mail">
+<label for="">ph no</label>
+<input type="text" placeholder="mobile no" id="mobile">
+
+
+<input type="button" value="register" id="register">
+
+
+    </form>
+
+<script>
+var reg=document.getElementById("register")
+
+arr=[]
+
+reg.addEventListener("click", (e)=>{
+
+    e.preventDefault();
+
+    var user1=document.getElementById("user").value;
+    var pass1=document.getElementById("pass").value;
+    var cn_ps1=document.getElementById("cn_ps").value;
+    var mail1=document.getElementById("mail").value;
+    var mobile1=document.getElementById("mobile").value;
+
+
+    console.log(user1,pass1,mail1,cn_ps1,mobile1);
+
+
+    let obj={
+         userName:user1,
+         passWord:pass1, confirmPassword:cn_ps1,
+         mail:mail1,
+         mobile:mobile1
+          }
+
+console.log(obj);
+arr.push(obj);
+console.log(arr);
+
+localStorage.setItem("register", JSON.stringify(arr))
+
+
+let c=confirm("You will be directed to Login Page")
+               
+               if(c){
+                window.location.assign("./login.html")
+               }
+
+
+})
+
+</script>
+
+</body>
+</html>

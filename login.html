@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+<label for="">user name</label>
+<input type="text" placeholder="username" id="user">
+<label for="">password</label>
+<input type="text" placeholder="password" id="pass">
+
+<label for="">email</label>
+<input type="text" placeholder="email" id="mail">
+
+
+
+<input type="button" value="login" id="register">
+
+
+    </form>
+
+<script>
+var reg=document.getElementById("register")
+
+arr=[]
+
+reg.addEventListener("click", (e)=>{
+
+    e.preventDefault();
+
+    var user1=document.getElementById("user").value;
+    var pass1=document.getElementById("pass").value;
+    var mail1=document.getElementById("mail").value;
+    
+
+    if(user1== ""||pass1==""||mail1==""){
+        alert(" fill the  required sections ")
+    }
+
+     // console.log(user1,pass1,mail1,cn_ps1,mobile1);
+
+
+     let data = JSON.parse(localStorage.getItem("register"))
+
+     console.log(data);
+
+    let ar=[]
+
+                for(i=0;i<data.length;i++){
+                    if(data[i]["userName"]==user1){
+                        ar.push(data[i])
+                    }
+                }
+                console.log(ar);
+
+         
+
+          
+
+
+
+
+ if(ar.length>0){
+
+    
+ if(user1==data[0]["userName"]  && pass1==data[0]["passWord"]   && mail1==data[0]["mail"]){
+
+alert(" login successful")
+}else if(pass1!==data[0]["passWord"] && pass1!==""  ){
+alert(" incorrect password ")
+}else if(mail1!==data[0]["mail"] && mail1!=="" ) {
+alert(" incorrect mail")
+}
+
+ }else{
+    // alert(" please register ")
+
+let cc= confirm(" please register ")
+if(cc){
+  window.location.assign("./index.html")
+}
+
+ }
+
+
+
+})
+
+</script>
+
+</body>
+</html>
